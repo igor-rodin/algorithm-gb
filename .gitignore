@@ -1,6 +1,7 @@
 # MacOs-specific files
 .DS_Store
 .idea
+target
 *.iml
 /out/
 .vscode/
