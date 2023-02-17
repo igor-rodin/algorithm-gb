@@ -14,7 +14,7 @@ public class Main {
         printLinkedList(myLinkedList);
 
         myLinkedList.reverse();
-
+        System.out.println("Reversed:");
         printLinkedList(myLinkedList);
     }
 

@@ -11,12 +11,13 @@ public class MyLinkedList<T> {
 
     /**
      * Добавить элемент в начало списка
+     *
      * @param value значение
      */
-    public void addFirst(T value){
+    public void addFirst(T value) {
         Node node = new Node(value);
-        if (head != null){
-             node.setNext(head);
+        if (head != null) {
+            node.setNext(head);
         }
         head = node;
     }
@@ -24,20 +25,21 @@ public class MyLinkedList<T> {
     /**
      * Удалить элемент из начала списка
      */
-    public void removeFirst(){
-        if (head != null){
+    public void removeFirst() {
+        if (head != null) {
             head = head.getNext();
         }
     }
 
     /**
      * Найти элемент
+     *
      * @param value значение
      * @return результат поиска
      */
-    public boolean contains(T value){
+    public boolean contains(T value) {
         Node node = head;
-        while (node != null){
+        while (node != null) {
             if (node.getValue().equals(value))
                 return true;
             node = node.getNext();
@@ -47,16 +49,16 @@ public class MyLinkedList<T> {
 
     /**
      * Добавить элемент в конец списка
+     *
      * @param value значение
      */
-    public void addLast(T value){
+    public void addLast(T value) {
         Node node = new Node(value);
-        if (head == null){
+        if (head == null) {
             head = node;
-        }
-        else{
+        } else {
             Node last = head;
-            while (last.getNext() != null){
+            while (last.getNext() != null) {
                 last = last.getNext();
             }
             last.setNext(node);
@@ -66,13 +68,12 @@ public class MyLinkedList<T> {
     /**
      * Удалить элемент из конца списка
      */
-    public void removeLast(){
+    public void removeLast() {
         if (head == null)
             return;
         Node last = head;
-        while (last.getNext() != null){
-            if (last.getNext().getNext() == null)
-            {
+        while (last.getNext() != null) {
+            if (last.getNext().getNext() == null) {
                 // Удаляем ссылку на последний элемент
                 last.setNext(null);
                 return;
@@ -83,9 +84,23 @@ public class MyLinkedList<T> {
     }
 
     /**
-     * Развлрачивает односвязный список
+     * Развлрачивает односвязный список итеративным способом
      */
     public void reverse() {
+        if (head == null || head.getNext() == null) return;
+
+
+        Node prev = null;
+        Node next;
         Node curNode = head;
+
+        while (curNode != null) {
+            next = curNode.getNext();
+            curNode.setNext(prev);
+            prev = curNode;
+            curNode = next;
+        }
+
+        head = prev;
     }
 }

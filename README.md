@@ -9,10 +9,30 @@
 ### Необходимо реализовать метод разворота связного списка (двухсвязного или односвязного на выбор).
 
 ```java
-    /**
-    * Разворачивает односвязный список
-    */
-    public void reverse() {
-        Node curNode = head;
+    public class MyLinkedList<T> {
+        
+        private Node head;
+        
+        //Остальные методы 
+    
+        /**
+         * Разворачивает односвязный список итеративным способом
+         */
+        public void reverse() {
+                if (head == null || head.getNext() == null) return;
+    
+                Node prev = null;
+                Node next;
+                Node curNode = head;
+    
+                while (curNode != null) {
+                    next = curNode.getNext();
+                    curNode.setNext(prev);
+                    prev = curNode;
+                    curNode = next;
+                }
+    
+                head = prev;
+        }
     }
 ```
