@@ -20,10 +20,10 @@
          */
         public void reverse() {
                 if (head == null || head.getNext() == null) return;
-    
-                Node prev = null;
-                Node next;
-                Node curNode = head;
+
+                Node<T> prev = null;
+                Node<T> next;
+                Node<T> curNode = head;
     
                 while (curNode != null) {
                     next = curNode.getNext();

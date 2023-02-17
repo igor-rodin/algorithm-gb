@@ -3,7 +3,7 @@ package lesson3;
 public class Node<T> {
 
     private T value;
-    private Node next;
+    private Node<T> next;
 
     public T getValue() {
         return value;
@@ -13,11 +13,11 @@ public class Node<T> {
         this.value = value;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 

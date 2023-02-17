@@ -18,8 +18,8 @@ public class Main {
         printLinkedList(myLinkedList);
     }
 
-    private static void printLinkedList(MyLinkedList linkedList) {
-        Node current = linkedList.getHead();
+    private static void printLinkedList(MyLinkedList<String> linkedList) {
+        Node<String> current = linkedList.getHead();
         if (current == null) return;
         while (current != null) {
             System.out.println(current.getValue());

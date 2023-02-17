@@ -2,10 +2,10 @@ package lesson3;
 
 public class MyLinkedList<T> {
 
-    private Node head;
+    private Node<T> head;
 
 
-    public Node getHead() {
+    public Node<T> getHead() {
         return head;
     }
 
@@ -15,7 +15,7 @@ public class MyLinkedList<T> {
      * @param value значение
      */
     public void addFirst(T value) {
-        Node node = new Node(value);
+        Node<T> node = new Node<>(value);
         if (head != null) {
             node.setNext(head);
         }
@@ -38,7 +38,7 @@ public class MyLinkedList<T> {
      * @return результат поиска
      */
     public boolean contains(T value) {
-        Node node = head;
+        Node<T> node = head;
         while (node != null) {
             if (node.getValue().equals(value))
                 return true;
@@ -53,11 +53,11 @@ public class MyLinkedList<T> {
      * @param value значение
      */
     public void addLast(T value) {
-        Node node = new Node(value);
+        Node<T> node = new Node<>(value);
         if (head == null) {
             head = node;
         } else {
-            Node last = head;
+            Node<T> last = head;
             while (last.getNext() != null) {
                 last = last.getNext();
             }
@@ -71,7 +71,7 @@ public class MyLinkedList<T> {
     public void removeLast() {
         if (head == null)
             return;
-        Node last = head;
+        Node<T> last = head;
         while (last.getNext() != null) {
             if (last.getNext().getNext() == null) {
                 // Удаляем ссылку на последний элемент
@@ -90,9 +90,9 @@ public class MyLinkedList<T> {
         if (head == null || head.getNext() == null) return;
 
 
-        Node prev = null;
-        Node next;
-        Node curNode = head;
+        Node<T> prev = null;
+        Node<T> next;
+        Node<T> curNode = head;
 
         while (curNode != null) {
             next = curNode.getNext();
